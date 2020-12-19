@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             ids[i] = Game.games[i].getImgID();
         }
         rv.setLayoutManager(new LinearLayoutManager(this));
-        ImageAdapter adapter = new ImageAdapter(captions, ids);
+        ImageAdapter adapter = new ImageAdapter(MainActivity.this ,captions, ids);
         rv.setAdapter(adapter);
     }
 }
