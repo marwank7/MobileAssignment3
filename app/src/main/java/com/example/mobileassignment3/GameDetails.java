@@ -33,10 +33,10 @@ public class GameDetails extends AppCompatActivity {
         TextView developer = findViewById(R.id.developer);
         TextView genre = findViewById(R.id.genre);
         Integer id =Integer.valueOf(getIntent().getStringExtra("ID"));
-        title.setText("Title : " +Game.games[id].getName());
-        year.setText("Year : " +Game.games[id].getYear());
-        genre.setText("Genre : " +Game.games[id].getGenre());
-        developer.setText("By : " +Game.games[id].getDeveloper());
+        title.setText("Title: " +Game.games[id].getName());
+        year.setText("Year: " +Game.games[id].getYear());
+        genre.setText("Genre: " +Game.games[id].getGenre());
+        developer.setText("By: " +Game.games[id].getDeveloper());
         Drawable dr = ContextCompat.getDrawable(this, Game.games[id].getImgID());
         imageView.setImageDrawable(dr);
 
