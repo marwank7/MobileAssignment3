@@ -1,15 +1,14 @@
 package com.example.mobileassignment3;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class GameDetails extends AppCompatActivity {
 
@@ -19,12 +18,12 @@ public class GameDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_details);
 
-        String[] captions = new String[Game.games.length];
-        int[] ids = new int[Game.games.length];
+        String[] captions = new String[MainActivity.games.size()];
+        int[] ids = new int[MainActivity.games.size()];
 
         for(int i = 0 ; i < captions.length ; i++){
-            captions[i] = Game.games[i].getName();
-            ids[i] = Game.games[i].getImgID();
+            captions[i] = (MainActivity.games.get(i)).getName();
+            ids[i] = Integer.parseInt((MainActivity.games.get(i)).getImgID());
         }
 
         ImageView imageView = findViewById(R.id.image);
@@ -33,11 +32,11 @@ public class GameDetails extends AppCompatActivity {
         TextView developer = findViewById(R.id.developer);
         TextView genre = findViewById(R.id.genre);
         Integer id =Integer.valueOf(getIntent().getStringExtra("ID"));
-        title.setText("Title: " +Game.games[id].getName());
-        year.setText("Year: " +Game.games[id].getYear());
-        genre.setText("Genre: " +Game.games[id].getGenre());
-        developer.setText("By: " +Game.games[id].getDeveloper());
-        Drawable dr = ContextCompat.getDrawable(this, Game.games[id].getImgID());
+        title.setText("Title: " +(MainActivity.games.get(id)).getName());
+        year.setText("Year: " +(MainActivity.games.get(id)).getYear());
+        genre.setText("Genre: " +(MainActivity.games.get(id)).getGenre());
+        developer.setText("By: " +(MainActivity.games.get(id)).getDeveloper());
+        Drawable dr = ContextCompat.getDrawable(this, (MainActivity.games.get(id)).getImgID());
         imageView.setImageDrawable(dr);
 
 

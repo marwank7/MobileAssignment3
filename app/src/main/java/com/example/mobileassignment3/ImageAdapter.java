@@ -1,30 +1,25 @@
 package com.example.mobileassignment3;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import static android.content.Context.CONTEXT_RESTRICTED;
-
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder>{
 
         private String[] captions;
-        private int[] imgIds;
+        private String[] imgIds;
         Context context ;
 
-    public ImageAdapter(Context context , String[] captions, int[] imgIds) {
+    public ImageAdapter(Context context , String[] captions, String[] imgIds) {
             this.captions = captions;
             this.imgIds = imgIds;
             this.context =context;
