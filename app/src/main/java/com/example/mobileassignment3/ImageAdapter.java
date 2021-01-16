@@ -19,7 +19,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder>{
         private String[] imgIds;
         Context context ;
 
-    public ImageAdapter(Context context , String[] captions, String[] imgIds) {
+    public ImageAdapter(Context context , String[] captions, int[] imgIds) {
             this.captions = captions;
             this.imgIds = imgIds;
             this.context =context;
@@ -35,7 +35,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position){
             CardView cardView = holder.cardView;
             ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
-            Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imgIds[position]);
+            Drawable dr = ContextCompat.getDrawable(cardView.getContext(), Integer.parseInt(imgIds[position]));
 
             imageView.setImageDrawable(dr);
 

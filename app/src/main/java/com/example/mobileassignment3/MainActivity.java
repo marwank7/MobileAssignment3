@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         int[] ids = new int[games.size()];
         for(int i = 0 ; i < games.size(); i++){
             captions[i] = (games.get(i)).getName();
-            ids[i] = (games.get(i)).getImgID();
+            ids[i] = Integer.parseInt((games.get(i)).getImgID());
         }
         rv.setLayoutManager(new LinearLayoutManager(this));
         ImageAdapter adapter = new ImageAdapter(MainActivity.this ,captions, ids);
