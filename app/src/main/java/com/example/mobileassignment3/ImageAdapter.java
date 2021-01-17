@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder>{
 
         private String[] captions;
-        private String[] imgIds;
+        private int[] imgIds;
         Context context ;
 
     public ImageAdapter(Context context , String[] captions, int[] imgIds) {
@@ -35,7 +35,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position){
             CardView cardView = holder.cardView;
             ImageView imageView = (ImageView) cardView.findViewById(R.id.image);
-            Drawable dr = ContextCompat.getDrawable(cardView.getContext(), Integer.parseInt(imgIds[position]));
+            Drawable dr = ContextCompat.getDrawable(cardView.getContext(), imgIds[position]);
 
             imageView.setImageDrawable(dr);
 

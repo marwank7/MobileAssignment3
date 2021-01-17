@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         int[] ids = new int[games.size()];
         for(int i = 0 ; i < games.size(); i++){
             captions[i] = (games.get(i)).getName();
-            ids[i] = Integer.parseInt((games.get(i)).getImgID());
+            ids[i] = (games.get(i)).getImgID();
         }
         rv.setLayoutManager(new LinearLayoutManager(this));
         ImageAdapter adapter = new ImageAdapter(MainActivity.this ,captions, ids);
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
                     String genre = jsonObject.getString("genre");
                     String year = jsonObject.getString("year");
                     String developer = jsonObject.getString("developer");
-                    String img_id = jsonObject.getString("img_id");
-                    String lon = jsonObject.getString("lon");
-                    String lat = jsonObject.getString("lat");
+                    int img_id = jsonObject.getInt("img_id");
+                    double lon = jsonObject.getDouble("lon");
+                    double lat = jsonObject.getDouble("lat");
                     System.out.println(name);
                     games .add(new Game(name,genre,year,developer,img_id,lon,lat));
 

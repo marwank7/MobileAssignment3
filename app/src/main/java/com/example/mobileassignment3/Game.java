@@ -5,15 +5,15 @@ public class Game {
     private String genre;
     private String year;
     private String developer;
-    private String imgID;
-    private String lon;
-    private String lat;
+    private int imgID;
+    private double lon;
+    private double lat;
 
 
     public Game() {
     }
 
-    public Game(String name, String genre, String year, String developer, String imgID, String lon, String lat) {
+    public Game(String name, String genre, String year, String developer, int imgID, double lon, double lat) {
         this.name = name;
         this.genre = genre;
         this.year = year;
@@ -67,15 +67,15 @@ public class Game {
         this.developer = developer;
     }
 
-    public void setImgID(String imgID) {
+    public void setImgID(int imgID) {
         this.imgID = imgID;
     }
 
-    public void setLon(String lon) {
+    public void setLon(double lon) {
         this.lon = lon;
     }
 
-    public void setLat(String lat) {
+    public void setLat(double lat) {
         this.lat = lat;
     }
 
@@ -95,15 +95,15 @@ public class Game {
         return developer;
     }
 
-    public String getImgID() {
+    public int getImgID() {
         return imgID;
     }
 
-    public String getLon() {
+    public double getLon() {
         return lon;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 }
