@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,16 +47,27 @@ public class GameDetails extends AppCompatActivity {
         year.setText("Year: " +(MainActivity.games.get(id)).getYear());
         genre.setText("Genre: " +(MainActivity.games.get(id)).getGenre());
         developer.setText("By: " +(MainActivity.games.get(id)).getDeveloper());
-        try {
-            location.setText("Location: "+ geocoder.getFromLocation(MainActivity.games.get(id).getLon(), MainActivity.games.get(id).getLat(), 1));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        location.setText("Location of Developer: "+ getAddress(MainActivity.games.get(id).getLon(), MainActivity.games.get(id).getLat(), 1));
         Drawable dr = ContextCompat.getDrawable(this, (MainActivity.games.get(id)).getImgID());
         imageView.setImageDrawable(dr);
 
 
 
+    }
+    private String getAddress(double v, double latitude, double longitude) {
+        StringBuilder result = new StringBuilder();
+        try {
+            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+            List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                result.append(address.getCountryName());
+            }
+        } catch (IOException e) {
+            Log.e("tag", e.getMessage());
+        }
+
+        return result.toString();
     }
 
     public void back(View view) {
